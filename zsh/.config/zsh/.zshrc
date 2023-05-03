@@ -1,3 +1,11 @@
+
+# history
+HISTFILE=~/.zsh_history
+
+# cache files of oh-my-zsh
+export ZSH_COMPDUMP=$XDG_CACHE_HOME/.zcompdump-$HOST
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -110,4 +118,4 @@ alias llt="exa -1 --icons --tree"
 eval "$(zoxide init zsh)"
 
 
-source ~/.config/.zsh_profile
+source $ZDOTDIR/.zsh_profile
