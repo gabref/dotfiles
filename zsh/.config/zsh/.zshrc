@@ -2,10 +2,6 @@
 # history
 HISTFILE=~/.zsh_history
 
-# cache files of oh-my-zsh
-export ZSH_COMPDUMP=$XDG_CACHE_HOME/.zcompdump-$HOST
-
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -85,7 +81,12 @@ plugins=(
     jsontools
 )
 
+
 source $ZSH/oh-my-zsh.sh
+
+# cache files of oh-my-zsh
+compinit -d $HOME/.cache/zsh/.zcompdump-$HOST-$ZSH_VERSION
+
 
 # User configuration
 
