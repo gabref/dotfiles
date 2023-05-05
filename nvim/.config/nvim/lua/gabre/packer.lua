@@ -31,9 +31,9 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' },   -- Required
+            { 'neovim/nvim-lspconfig' }, -- Required
             {
-                                           -- Optional
+                -- Optional
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
@@ -42,17 +42,17 @@ return require('packer').startup(function(use)
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },   -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },   -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
-    use('hrsh7th/cmp-buffer') -- completion for buffers
-    use('hrsh7th/cmp-path') -- completion filesystem paths
+    use('hrsh7th/cmp-buffer')       -- completion for buffers
+    use('hrsh7th/cmp-path')         -- completion filesystem paths
 
-    use('saadparwaiz1/cmp_luasnip')-- lua snippets
+    use('saadparwaiz1/cmp_luasnip') -- lua snippets
 
-    use('folke/neodev.nvim')  -- lsp for lua
+    use('folke/neodev.nvim')        -- lsp for lua
     use('onsails/lspkind-nvim')
 
     use('folke/tokyonight.nvim')
@@ -83,6 +83,14 @@ return require('packer').startup(function(use)
 
     -- highlighting other uses of the word under the cursor
     use('RRethy/vim-illuminate')
+
+    -- comments
+    use({
+        'numToStr/Comment.nvim',
+        requires = {
+            'JoosepAlviste/nvim-ts-context-commentstring'
+        }
+    })
 
     -- folke/trouble.nvim
     -- folke/zen-mode.nvim
