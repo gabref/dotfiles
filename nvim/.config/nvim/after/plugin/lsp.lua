@@ -4,7 +4,7 @@ if (not status) then return end
 -- lua and plugin docs, help and completion
 neodev.setup()
 
--- mason 
+-- mason
 local statusm, mason = pcall(require, 'mason')
 if (not statusm) then return end
 
@@ -61,3 +61,43 @@ lsp.set_sign_icons({
 })
 
 lsp.setup()
+
+-- configs auto completion
+local cmp = require('cmp')
+local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
+local cmp_action = require('lsp-zero').cmp_action()
+
+cmp.setup({
+    sources = {
+        { name = 'path' },
+        { name = 'buffer',  keyword_length = 3 },
+        { name = 'luasnip', keyword_length = 2 },
+        { name = 'nvim_lsp' }
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<c-k>'] = cmp.mapping.select_prev_item(cmp_select_opts),
+        ['<c-j>'] = cmp.mapping.select_next_item(cmp_select_opts),
+        ['<c-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<c-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<c-a>'] = cmp.mapping.abort(),
+        ['<cr>'] = cmp.mapping.confirm({ select = true }),
+        ['<tab>'] = cmp_action.luasnip_supertab(),
+        ['<s-tab>'] = cmp_action.luasnip_shift_supertab(),
+    }),
+    -- preselect first item
+    preselect = 'item',
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
+    formatting = {
+        -- changing the order of fields so the icon is the first
+        fields = { 'abbr', 'kind', 'menu' },
+        format = require('lspkind').cmp_format({
+            mode = 'symbol',        -- show only symbol annotations
+            maxwidth = 50,          -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            ellipsis_char = '...',  -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+
+        })
+    }
+})
+

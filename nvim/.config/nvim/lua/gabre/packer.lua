@@ -49,10 +49,11 @@ return require('packer').startup(function(use)
     }
     use('hrsh7th/cmp-buffer') -- completion for buffers
     use('hrsh7th/cmp-path') -- completion filesystem paths
-    -- use('hrsh7th/')
-    -- use('hrsh7th/')
-    use('onsails/lspkind-nvim')
+
+    use('saadparwaiz1/cmp_luasnip')-- lua snippets
+
     use('folke/neodev.nvim')  -- lsp for lua
+    use('onsails/lspkind-nvim')
 
     use('folke/tokyonight.nvim')
 
