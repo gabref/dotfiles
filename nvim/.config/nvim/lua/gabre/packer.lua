@@ -81,6 +81,9 @@ return require('packer').startup(function(use)
         }
     })
 
+    -- highlighting other uses of the word under the cursor
+    use('RRethy/vim-illuminate')
+
     -- folke/trouble.nvim
     -- folke/zen-mode.nvim
     -- theprimeagen/refactoring.nvim
