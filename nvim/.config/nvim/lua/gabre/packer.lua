@@ -72,15 +72,21 @@ return require('packer').startup(function(use)
     -- git signs
     use('lewis6991/gitsigns.nvim')
 
+    -- barbecue bar
+    use({
+        'utilyre/barbecue.nvim',
+        tag = '*',
+        requires = {
+            'SmiteshP/nvim-navic'
+        }
+    })
+
     -- folke/trouble.nvim
     -- folke/zen-mode.nvim
     -- theprimeagen/refactoring.nvim
     -- nvim-treesitter/nvim-treesitter-context
-    -- folke/zen-mode.nvim
     -- github/copilot
     -- eandrju/cellular-automaton.nvim
     -- laytan/cloak.nvim
-    -- hoob3rt/lualine.nvim
     -- glepnir/lspsaga.nvim -- plugin for lsp
-    --  -- git sign like vscode
 end)
