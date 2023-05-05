@@ -25,17 +25,6 @@ lsp.ensure_installed({
     'rust_analyzer'
 })
 
--- fix undefined global vim
-lsp.configure('lua-language-server', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-})
-
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
@@ -59,6 +48,51 @@ lsp.set_sign_icons({
     hint = '⚑',
     info = '»'
 })
+
+-- lspconfig
+local statusc, nvim_lsp = pcall(require, 'lspconfig')
+if (not statusc) then return end
+
+-- the nvim-cmp almost supports LSP's capabilities so advertise it to LSP servers
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- advertise to clangd
+nvim_lsp.clangd.setup {
+    capabilities = capabilities
+}
+
+nvim_lsp.tsserver.setup {
+    -- cragtzdog
+    -- on_attach = on_attach,
+    filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
+    cmd = { 'typescript-language-server', '--stdio' },
+    capabilities = capabilities
+}
+
+nvim_lsp.lua_ls.setup {
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostics = {
+                -- get the language server to recognize the vim global
+                globals = { 'vim' }
+            },
+            -- workspace = {
+            --     -- make the server aware of neovim runtime files
+            --     library = vim.api.nvim_get_runtime_file('', true),
+            --     checkThirdParty = false
+            -- }
+        }
+    }
+}
+
+nvim_lsp.tailwindcss.setup {
+    capabilities = capabilities
+}
+
+nvim_lsp.cssls.setup {
+    capabilities = capabilities
+}
 
 lsp.setup()
 
@@ -100,4 +134,3 @@ cmp.setup({
         })
     }
 })
-
