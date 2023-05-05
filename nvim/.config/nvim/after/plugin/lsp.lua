@@ -4,6 +4,16 @@ if (not status) then return end
 -- lua and plugin docs, help and completion
 neodev.setup()
 
+-- mason 
+local statusm, mason = pcall(require, 'mason')
+if (not statusm) then return end
+
+mason.setup({
+    ui = {
+        border = 'rounded'
+    }
+})
+
 -- lsp zero
 local statusl, lsp = pcall(require, 'lsp-zero')
 if (not statusl) then return end
@@ -40,9 +50,14 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
     vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
-    vim.keymap.set({'n', 'x'}, '<leader>f', function() vim.lsp.buf.format() end, opts)
+    vim.keymap.set({ 'n', 'x' }, '<leader>f', function() vim.lsp.buf.format() end, opts)
 end)
 
-
+lsp.set_sign_icons({
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = '»'
+})
 
 lsp.setup()
