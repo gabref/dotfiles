@@ -69,6 +69,11 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+
+# zvm customizations
+ZVM_VI_ESCAPE_BINDKEY=jk
+ZVM_INSERT_MODE_CURSOR=ZVM_CURSOR_BLINKING_BLOCK
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -77,6 +82,8 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git
     zsh-autosuggestions
+    # zsh-vi-mode
+    vi-mode
     web-search
     jsontools
 )
