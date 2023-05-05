@@ -118,5 +118,6 @@ alias llt="exa -1 --icons --tree"
 
 eval "$(zoxide init zsh)"
 
-
 source $ZDOTDIR/.zsh_profile
+
+export PATH=$PATH:/usr/local/go/bin
