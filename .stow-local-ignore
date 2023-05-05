@@ -21,7 +21,11 @@ _darcs
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
 
+# zshell completion stuff
 .zcomp*
+
+# assets folder
+assets
 
 ^/README.*
 ^/LICENSE.*
