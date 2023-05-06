@@ -17,3 +17,4 @@ suggestions
 
 ## To install
 github.com/tmux-plugins/tpm
+go install github.com/arl/gitmux@latest
