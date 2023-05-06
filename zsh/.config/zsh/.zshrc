@@ -83,7 +83,7 @@ plugins=(
     git
     zsh-autosuggestions
     # zsh-vi-mode
-    vi-mode
+    # vi-mode
     web-search
     jsontools
 )
@@ -128,3 +128,6 @@ eval "$(zoxide init zsh)"
 source $ZDOTDIR/.zsh_profile
 
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$HOME/.local/bin:$PATH
+
+# source $ZDOTDIR/.most.zsh

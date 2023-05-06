@@ -1,1 +1,3 @@
 .zcomp*
+tmux/.config/tmux/plugins
+*.log
