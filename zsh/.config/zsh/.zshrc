@@ -129,5 +129,8 @@ source $ZDOTDIR/.zsh_profile
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/.local/bin:$PATH
+# export BROWSER=wslview
+
+# sudo ln -s $(which wslview) /usr/local/bin/xdg-open
 
 # source $ZDOTDIR/.most.zsh
