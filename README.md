@@ -2,9 +2,9 @@
 
 stow */
 
-<img src="/assets/main.jpg" alt="main" width="600px" />
-<img src="/assets/lsp.jpg" alt="main" width="600px" />
-<img src="/assets/telescope.jpg" alt="main" width="600px" />
+<img src="/.assets/main.jpg" alt="main" width="600px" />
+<img src="/.assets/lsp.jpg" alt="main" width="600px" />
+<img src="/.assets/telescope.jpg" alt="main" width="600px" />
 
 ## Requirements
 
