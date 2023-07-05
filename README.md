@@ -15,7 +15,7 @@ oh-my-zsh
 suggestions
 
 ## Fast vi mode in zsh shell
-[zsh-vi-mode][https://github.com/jeffreytse/zsh-vi-mode]
+[zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
 
 ## To install
 github.com/tmux-plugins/tpm
