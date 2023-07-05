@@ -27,6 +27,8 @@ telescope.setup {
             theme = 'ivy', -- dropdown
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
+            hidden = { file_browser = true, folder_browser = true },
+            initial_mode = "normal",
             mappings = {
                 ['i'] = {
                     ['<c-w>'] = function() vim.cmd('normal vbd') end,
@@ -87,7 +89,7 @@ vim.keymap.set('n', '<leader>e', function()
           respect_gitignore = false,
           hidden = true,
           grouped = true,
-          previewer = false,
+          previewer = true,
           initial_mode = "normal",
           layout_config = { height = 40 }
     })
