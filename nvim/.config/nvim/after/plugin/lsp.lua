@@ -64,7 +64,7 @@ nvim_lsp.clangd.setup {
 nvim_lsp.tsserver.setup {
     -- cragtzdog
     -- on_attach = on_attach,
-    filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
+    filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx', 'javascript', 'javascriptreact', 'javascript.jsx', 'vue', 'svelte', 'astro' },
     cmd = { 'typescript-language-server', '--stdio' },
     capabilities = capabilities
 }
