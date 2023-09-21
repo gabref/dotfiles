@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["42-header.nvim"] = {
+    loaded = true,
+    path = "/home/gabre/.local/share/nvim/site/pack/packer/start/42-header.nvim",
+    url = "https://github.com/Diogo-ss/42-header.nvim"
+  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/home/gabre/.local/share/nvim/site/pack/packer/start/Comment.nvim",

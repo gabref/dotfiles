@@ -92,6 +92,9 @@ return require('packer').startup(function(use)
         }
     })
 
+    -- 42
+    use('Diogo-ss/42-header.nvim')
+
     -- folke/trouble.nvim
     -- folke/zen-mode.nvim
     -- theprimeagen/refactoring.nvim
