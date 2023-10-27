@@ -14,8 +14,25 @@ source $ZDOTDIR/.zsh_exports
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+ZSH_THEME="random"
+# ZSH_THEME="agnoster"
+# ZSH_THEME_RANDOM_IGNORED=(pygmalion tjkirch_mod)
+ZSH_THEME_RANDOM_CANDIDATES=(
+  "robbyrussell"
+  "agnoster"
+  "amuse"
+  "darkblood"
+  "awesomepanda"
+  "essembeh"
+  "geoffgarside"
+  "half-life"
+  "jonathan"
+  "kolo"
+  "norm"
+  # "zhan"
+)
+
+ZSH_THEME_RANDOM_QUIET=true
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -127,5 +144,3 @@ fi
 
 source $ZDOTDIR/.zsh_profile
 source $ZDOTDIR/.zshenv
-
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

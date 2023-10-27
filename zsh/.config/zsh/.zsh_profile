@@ -18,3 +18,10 @@ bindkey '^e' autosuggest-accept
 # aliases
 alias ll="exa -l -g --icons -a"
 alias llt="exa -1 --icons --tree"
+
+eval `keychain --agents ssh --eval /home/gabre/.ssh/id_github_ed25519`
+clear
+# if [ ! -f ~/.run_once ]; then
+#     source ./run_once
+# 	touch ~/.run_once
+# fi
