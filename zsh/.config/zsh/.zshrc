@@ -1,18 +1,21 @@
-
 # history
 HISTFILE=~/.zsh_history
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# configurations for zsh-vi-mode, called automagically
+function zvm_config() {
+	ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+	ZVM_CURSOR_STYLE_ENABLED=false
+	ZVM_KEYTIMEOUT=0.2
+}
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+source $ZDOTDIR/.zsh_exports
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -69,31 +72,19 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-
-# zvm customizations
-ZVM_VI_ESCAPE_BINDKEY=jk
-ZVM_INSERT_MODE_CURSOR=ZVM_CURSOR_BLINKING_BLOCK
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    zsh-autosuggestions
-    # zsh-vi-mode
-    # vi-mode
-    web-search
-    jsontools
+	git
+	hitokoto
+	zsh-vi-mode
+	zsh-autosuggestions
 )
 
-
 source $ZSH/oh-my-zsh.sh
-
-# cache files of oh-my-zsh
-compinit -d $HOME/.cache/zsh/.zcompdump-$HOST-$ZSH_VERSION
-
 
 # User configuration
 
@@ -120,17 +111,21 @@ compinit -d $HOME/.cache/zsh/.zcompdump-$HOST-$ZSH_VERSION
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ll="exa -l -g --icons -a"
-alias llt="exa -1 --icons --tree"
 
-eval "$(zoxide init zsh)"
+# colors for directories in ll
+eval `dircolors ~/.dircolors`
+
+# fzf - TODO: fzf-tmux
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zoxide
+if (( $+commands[zoxide] )); then
+	eval "$(zoxide init zsh)"
+else
+	echo '[from me dumbass] zoxide not found, please install it from https://github.com/ajeetdsouza/zoxide'
+fi
 
 source $ZDOTDIR/.zsh_profile
+source $ZDOTDIR/.zshenv
 
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$HOME/.local/bin:$PATH
-# export BROWSER=wslview
-
-# sudo ln -s $(which wslview) /usr/local/bin/xdg-open
-
-# source $ZDOTDIR/.most.zsh
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

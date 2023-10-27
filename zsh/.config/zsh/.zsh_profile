@@ -14,3 +14,7 @@
 
 # zsh-auto-suggestions
 bindkey '^e' autosuggest-accept
+
+# aliases
+alias ll="exa -l -g --icons -a"
+alias llt="exa -1 --icons --tree"

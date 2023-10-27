@@ -1,6 +1,10 @@
-require('rose-pine').setup({
+local status, rose_pine = pcall(require, 'rose-pine')
+if (not status) then return end
+
+rose_pine.setup({
     disable_background = true
 })
+
 function ColorMyPencils(color)
 	color = color or 'tokyonight' -- 'rose-pine'
 	vim.cmd.colorscheme(color)

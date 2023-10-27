@@ -9,7 +9,7 @@ barbecue.setup({
 })
 
 vim.api.nvim_create_autocmd({
-    'WinResized ',   -- or WinResized on NVIM-v0.9 and higher
+    'WinResized',   -- or WinResized on NVIM-v0.9 and higher
     'BufWinEnter',
     'CursorHold',
     'InsertLeave',

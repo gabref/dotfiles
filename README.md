@@ -18,5 +18,12 @@ suggestions
 [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
 
 ## To install
-github.com/tmux-plugins/tpm
+
+### Telescope Dependencies
+* [ripgrep](https://github.com/BurntSushi/ripgrep)
+* [fd](https://github.com/sharkdp/fd)
+
+### Tmux 
+* [Tmux Package Manager](github.com/tmux-plugins/tpm)
+
 go install github.com/arl/gitmux@latest
