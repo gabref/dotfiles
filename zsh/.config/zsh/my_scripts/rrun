@@ -1,0 +1,2 @@
+#!/bin/zsh
+rustc $1.rs && ./$1
