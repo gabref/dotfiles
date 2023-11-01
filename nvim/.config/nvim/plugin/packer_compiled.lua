@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["42-C-Formatter.nvim"] = {
+    loaded = true,
+    path = "/home/gabre/.local/share/nvim/site/pack/packer/start/42-C-Formatter.nvim",
+    url = "https://github.com/Diogo-ss/42-C-Formatter.nvim"
+  },
   ["42-header.nvim"] = {
     loaded = true,
     path = "/home/gabre/.local/share/nvim/site/pack/packer/start/42-header.nvim",

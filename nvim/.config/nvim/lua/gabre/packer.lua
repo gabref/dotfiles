@@ -99,6 +99,7 @@ return packer.startup(function(use)
 
     -- 42
     use('Diogo-ss/42-header.nvim')
+	-- use ('Diogo-ss/42-C-Formatter.nvim')
 
     -- folke/trouble.nvim
     -- folke/zen-mode.nvim
