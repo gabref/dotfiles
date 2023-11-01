@@ -99,6 +99,7 @@ plugins=(
 	hitokoto
 	zsh-vi-mode
 	zsh-autosuggestions
+	colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
