@@ -17,3 +17,29 @@ export ZSH_COMPDUMP=$HOME/.cache/.zcompdump-$HOST-$ZSH_VERSION
 
 # Added by n-install (see http://git.io/n-install-repo)
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+
+# go
+export PATH=$PATH:/usr/local/go/bin
+
+export PATH=/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:$PATH
+# export PATH=/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:$PATH
+# export PATH=/usr/games:/usr/local/games:$PATH
+# export PATH=/usr/lib/wsl/lib:$PATH
+# export PATH=/mnt/c/Program Files/Alacritty/:$PATH
+# export PATH=/mnt/c/Program Files/PowerShell/7/:$PATH
+# export PATH=/mnt/c/Users/codec/AppData/Local/Microsoft/WindowsApps:$PATH
+# export PATH=/mnt/c/Users/codec/AppData/Local/Programs/Microsoft VS Code/bin:$PATH
+
+# /mnt/c/Windows/System32/OpenSSH/:
+# /mnt/c/Program Files/Git/cmd:
+# /mnt/c/Program Files/dotnet/:
+# /mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:
+#/mnt/c/Users/codec/AppData/Local/Programs/Python/Python312/Scripts/:
+#/mnt/c/Users/codec/AppData/Local/Programs/Python/Python312/:
+#/mnt/c/Users/codec/AppData/Local/Programs/Python/Launcher/:
+# /mnt/c/Users/codec/.dotnet/tools:
+# /mnt/c/tool/scrcpy-win64-v2.0
+# /mnt/c/Users/codec/AppData/Local/Programs/oh-my-posh/bin:
+# /mnt/c/Users/codec/.cargo/bin:
+# /mnt/c/Windows/System32/WindowsPowerShell/v1.0/:
+
