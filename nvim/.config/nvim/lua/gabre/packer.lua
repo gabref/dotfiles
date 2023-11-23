@@ -118,24 +118,7 @@ return packer.startup(function(use)
 	use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
 	-- Background Transparent
-	use({
-		"xiyaowong/nvim-transparent",
-		config = function()
-			require("transparent").setup({
-
-				extra_groups = {
-					"BufferLineTabClose",
-					"BufferlineBufferSelected",
-					"BufferLineFill",
-					"BufferLineBackground",
-					"BufferLineSeparator",
-
-					"BufferLineIndicatorSelected",
-				},
-				exclude_groups = {},
-			})
-		end,
-	})
+	use("xiyaowong/nvim-transparent")
 
 
 

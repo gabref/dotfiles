@@ -6,9 +6,29 @@ function ColorMyPencils(color, set_background)
 		set_background = true
 	end
 	if set_background then
-		vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-		vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+		-- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+		-- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+		vim.cmd(':TransparentEnable')
+		SetTransparent()
+	else
+		vim.cmd(':TransparentDisable')
 	end
+end
+
+function SetTransparent()
+	local status, transparent = pcall(require, 'transparent')
+	if not status then return end
+	transparent.setup({
+		extra_groups = {
+			"BufferLineTabClose",
+			"BufferlineBufferSelected",
+			"BufferLineFill",
+			"BufferLineBackground",
+			"BufferLineSeparator",
+			"BufferLineIndicatorSelected",
+		},
+		exclude_groups = {},
+	})
 end
 
 ColorMyPencils()
@@ -29,9 +49,8 @@ local themes = require('telescope.themes')
 
 function Enter(prompt_bufnr)
 	local selected = actions_state.get_selected_entry()
-	local set_bg = vim.fn.confirm('Set Background transparent?', '&y\n&n', 1)
-	print(set_bg)
-	ColorMyPencils(selected[1], set_bg == 1)
+	local set_bg_answer = vim.fn.confirm('Set Background transparent?', '&y\n&n', 1)
+	ColorMyPencils(selected[1], set_bg_answer == 1)
 	actions.close(prompt_bufnr)
 end
 
