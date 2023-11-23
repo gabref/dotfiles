@@ -7,7 +7,7 @@ header42.setup({
   default_map = true, -- default Mapping <F1> in normal mode
   auto_update = true, -- update header when saving
   user = "galves-f", -- your user
-  mail = "marvin@42.fr", -- your mail
+  mail = "galves-f@student.42.fr", -- your mail
   -- asciiart = { "......", "......",} -- headers with different ascii arts are incompatible with each other
 })
 

@@ -1,16 +1,31 @@
-local status, rose_pine = pcall(require, 'rose-pine')
-if (not status) then return end
+-- local status, rose_pine = pcall(require, 'rose-pine')
+-- if (not status) then return end
 
-rose_pine.setup({
-    disable_background = true
-})
+-- rose_pine.setup({
+--     disable_background = true
+-- })
 
-function ColorMyPencils(color)
-	color = color or 'tokyonight' -- 'rose-pine'
-	vim.cmd.colorscheme(color)
+local status_k, kanagawa = pcall(require, "kanagawa")
 
-	vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-	vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+if not status_k then
+	return
 end
 
-ColorMyPencils()
+kanagawa.setup({
+	undercurl = true, -- enable undercurls
+	commentStyle = { italic = true },
+	functionStyle = {},
+	keywordStyle = { italic = true },
+	statementStyle = { bold = true },
+	typeStyle = {},
+	variablebuiltinStyle = { italic = true },
+	specialReturn = true, -- special highlight for the return keyword
+	specialException = true, -- special highlight for exception handling keywords
+	transparent = false,  -- do not set background color
+	dimInactive = false,  -- dim inactive window `:h hl-NormalNC`
+	globalStatus = false, -- adjust window separators highlight for laststatus=3
+	terminalColors = true, -- define vim.g.terminal_color_{0,17}
+	colors = {},
+	-- overrides = {},
+	theme = "default", -- Load "default" theme or the experimental "light" theme
+})
