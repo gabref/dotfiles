@@ -1,9 +1,14 @@
-function ColorMyPencils(color)
+function ColorMyPencils(color, set_background)
 	color = color or 'tokyonight' -- 'rose-pine'
 	vim.cmd.colorscheme(color)
 
-	vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-	vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+	if set_background == nil then
+		set_background = true
+	end
+	if set_background then
+		vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+		vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+	end
 end
 
 ColorMyPencils()
@@ -24,7 +29,9 @@ local themes = require('telescope.themes')
 
 function Enter(prompt_bufnr)
 	local selected = actions_state.get_selected_entry()
-	ColorMyPencils(selected[1])
+	local set_bg = vim.fn.confirm('Set Background transparent?', '&y\n&n', 1)
+	print(set_bg)
+	ColorMyPencils(selected[1], set_bg == 1)
 	actions.close(prompt_bufnr)
 end
 
@@ -74,37 +81,36 @@ end
 -- ---------------------------------------------------------
 
 function ColorsSort(colors_table)
-    -- Colorschemes to be moved to the end
+	-- Colorschemes to be moved to the end
 
-    local move_to_end = {
+	local move_to_end = {
 		-- default colorschemes
-        "blue", "darkblue", "delek", "desert", "elflord",
-        "evening", "industry", "koehler", "morning",
-        "murphy", "pablo", "peachpuff", "ron",
-        "shine", "slate", "torte", "zellner", "lunaperche",
+		"blue", "darkblue", "delek", "desert", "elflord",
+		"evening", "industry", "koehler", "morning",
+		"murphy", "pablo", "peachpuff", "ron",
+		"shine", "slate", "torte", "zellner", "lunaperche",
 		"default", "quiet", "habamax",
 		-- white colorschemes
 		"catppuccin-latte", "kanagawa-lotus", "rose-pine",
 		"rose-pine-dawn", "solarized-osaka-day", "tokyonight-day"
-    }
+	}
 
-    -- Create a table to store the reordered colorschemes
-    local reordered_table = {}
+	-- Create a table to store the reordered colorschemes
+	local reordered_table = {}
 
-    -- Add colorschemes not in move_to_end to the reordered_table
-    for _, color in ipairs(colors_table) do
-        if not vim.tbl_contains(move_to_end, color) then
-            table.insert(reordered_table, color)
-        end
-    end
+	-- Add colorschemes not in move_to_end to the reordered_table
+	for _, color in ipairs(colors_table) do
+		if not vim.tbl_contains(move_to_end, color) then
+			table.insert(reordered_table, color)
+		end
+	end
 
-    -- Add colorschemes in move_to_end to the end of the reordered_table
-    for _, color in ipairs(move_to_end) do
+	-- Add colorschemes in move_to_end to the end of the reordered_table
+	for _, color in ipairs(move_to_end) do
+		table.insert(reordered_table, color)
+	end
 
-        table.insert(reordered_table, color)
-    end
-
-    return reordered_table
+	return reordered_table
 end
 
 function Test()
