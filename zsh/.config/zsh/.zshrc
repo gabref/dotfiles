@@ -145,3 +145,4 @@ fi
 
 source $ZDOTDIR/.zsh_profile
 source $ZDOTDIR/.zshenv
+source $ZDOTDIR/.zsh_nvims
