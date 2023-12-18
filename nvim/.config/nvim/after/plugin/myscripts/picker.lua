@@ -1,5 +1,5 @@
 function ColorMyPencils(color, set_background)
-	color = color or 'tokyonight' -- 'rose-pine'
+	color = color or 'dracula' -- 'rose-pine'
 	vim.cmd.colorscheme(color)
 
 	if set_background == nil then

@@ -17,7 +17,7 @@ local function cur_date_long()
 	return os.date "%B %d, %Y"
 end
 
-ls.add_snippets("md", {
+ls.add_snippets("markdown", {
 	s("note", {
 		t({'---', ''}),
 		t({'id: "' .. cur_date() .. '"', ''}),
