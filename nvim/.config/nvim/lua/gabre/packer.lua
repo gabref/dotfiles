@@ -120,13 +120,13 @@ return packer.startup(function(use)
 	-- Background Transparent
 	use("xiyaowong/nvim-transparent")
 
+	use('github/copilot.vim')
 
 
 	-- folke/trouble.nvim
 	-- folke/zen-mode.nvim
 	-- theprimeagen/refactoring.nvim
 	-- nvim-treesitter/nvim-treesitter-context
-	-- github/copilot
 	-- eandrju/cellular-automaton.nvim
 	-- laytan/cloak.nvim
 	-- glepnir/lspsaga.nvim -- plugin for lsp

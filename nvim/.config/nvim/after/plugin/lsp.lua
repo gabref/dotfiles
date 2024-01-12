@@ -115,7 +115,7 @@ cmp.setup({
         ['<c-d>'] = cmp.mapping.scroll_docs(-4),
         ['<c-a>'] = cmp.mapping.abort(),
         ['<cr>'] = cmp.mapping.confirm({ select = true }),
-        ['<tab>'] = cmp_action.luasnip_supertab(),
+        -- ['<tab>'] = cmp_action.luasnip_supertab(),
         ['<s-tab>'] = cmp_action.luasnip_shift_supertab(),
     }),
     -- preselect first item
