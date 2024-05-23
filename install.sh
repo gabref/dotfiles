@@ -1,13 +1,19 @@
-sudo apt update && upgrade
+sudo apt update && upgrade -y
+
+# git
+sudo apt install git
+
+# ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # gcc
-sudo apt install build-essential
-sudo apt install software-properties-common
+sudo apt install build-essential -y
+sudo apt install software-properties-common -y
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt install gcc-12 g++-12 gcc-13 g++-13 -y
 sudo apt install libmpfr-dev libgmp3-dev libmpc-dev -y
 
-sudo apt install python3 python3-pip ipython3
+sudo apt install python3 python3-pip ipython3 -y
 
 # install rust
 sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -21,7 +27,7 @@ cargo install exa
 cargo install zoxide --locked
 
 # fzf
-sudo apk install fzf
+sudo apk install fzf -y
 
 # ripgrep
 cargo install ripgrep
@@ -34,7 +40,7 @@ curl -L https://bit.ly/n-install | bash
 n latest
 
 # stow
-sudo apt install stow
+sudo apt install stow -y
 
 # oh-my-zsh plugin
 git clone https://github.com/jeffreytse/zsh-vi-mode \
@@ -42,19 +48,24 @@ git clone https://github.com/jeffreytse/zsh-vi-mode \
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 
-sudo apt-get install keychain
+sudo apt-get install keychain -y
 
 dircolors -p > .dircolors
 
-# neovim
-
 # tmux
-sudo apt install libevent-dev ncurses-dev build-essential bison pkg-config
-sudo apt install tmux
+sudo apt install libevent-dev ncurses-dev build-essential bison pkg-config -y
+sudo apt install tmux -y
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-sudo apt-get install ninja-build gettext cmake unzip curl build-essential
+# neovim
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential -y
 git clone https://github.com/neovim/neovim
 cd neovim
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+
+# my configs
+cd $HOME
+git clone https://github.com/gabref/dotfiles.git
+cd dotfiles
+stow */
