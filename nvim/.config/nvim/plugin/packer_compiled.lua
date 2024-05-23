@@ -114,11 +114,6 @@ _G.packer_plugins = {
     path = "/home/gabre/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["copilot.vim"] = {
-    loaded = true,
-    path = "/home/gabre/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
-  },
   ["dracula.nvim"] = {
     loaded = true,
     path = "/home/gabre/.local/share/nvim/site/pack/packer/start/dracula.nvim",
@@ -205,6 +200,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gabre/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/home/gabre/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

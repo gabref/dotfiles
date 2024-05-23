@@ -120,7 +120,9 @@ return packer.startup(function(use)
 	-- Background Transparent
 	use("xiyaowong/nvim-transparent")
 
-	use('github/copilot.vim')
+	-- use('github/copilot.vim')
+
+	use('mfussenegger/nvim-jdtls')
 
 
 	-- folke/trouble.nvim
