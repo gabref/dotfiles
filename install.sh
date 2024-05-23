@@ -9,6 +9,10 @@ sudo apt install libmpfr-dev libgmp3-dev libmpc-dev -y
 
 sudo apt install python3 python3-pip ipython3
 
+# install rust
+sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+. "$HOME/.cargo/env"
+
 # exa
 cargo install exa
 
