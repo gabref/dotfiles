@@ -3,11 +3,22 @@ alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 alias nvim-macro="NVIM_APPNAME=nvim-macro nvim"
+alias nv="NVIM_APPNAME=newconfig nvim"
 
 function nvims() {
   # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
-  items=("default" "nvim-macro")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  items=("default")
+
+	for dir in $XDG_CONFIG_HOME/*; do
+		if [ -d "$dir" ]; then
+			dirname=$(basename $dir)
+			if [[ $dirname == *nvim* ]]; then
+				items+=("$dirname")
+			fi
+		fi
+	done
+
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
     return 0

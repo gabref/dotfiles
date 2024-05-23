@@ -102,6 +102,7 @@ plugins=(
 	colored-man-pages
 )
 
+source $ZDOTDIR/.zsh_exports
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -146,3 +147,7 @@ fi
 source $ZDOTDIR/.zsh_profile
 source $ZDOTDIR/.zshenv
 source $ZDOTDIR/.zsh_nvims
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
