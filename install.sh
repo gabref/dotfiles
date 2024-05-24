@@ -9,7 +9,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # gcc
 sudo apt install build-essential -y
 sudo apt install software-properties-common -y
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
 sudo apt install gcc-12 g++-12 gcc-13 g++-13 -y
 sudo apt install libmpfr-dev libgmp3-dev libmpc-dev -y
 
@@ -59,6 +59,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # neovim
 sudo apt-get install ninja-build gettext cmake unzip curl build-essential -y
+cd $HOME
 git clone https://github.com/neovim/neovim
 cd neovim
 make CMAKE_BUILD_TYPE=RelWithDebInfo

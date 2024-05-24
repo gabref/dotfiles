@@ -6,6 +6,24 @@ stow */
 <img src="/.assets/lsp.jpg" alt="main" width="600px" />
 <img src="/.assets/telescope.jpg" alt="main" width="600px" />
 
+## Install script
+
+Not finished
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/gabref/dotfiles/main/install.sh)"
+```
+
+test in container
+```bash
+docker pull ubuntu:jammy
+docker run -it --rm=true ubuntu:jammy /bin/bash
+passwd root
+adduser gabre
+apt install sudo
+usermod -aG gabre sudo
+```
+
 ## Requirements
 
 Set zsh as your login shell:
