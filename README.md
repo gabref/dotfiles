@@ -45,3 +45,6 @@ suggestions
 * [Tmux Package Manager](github.com/tmux-plugins/tpm)
 
 go install github.com/arl/gitmux@latest
+
+## Nice links
+* (Alacritty config)[https://github.com/mauromotion/dotfiles/blob/main/alacritty/alacritty.toml]
