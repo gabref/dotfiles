@@ -57,8 +57,18 @@ return {
 
 				tsserver = {
 					-- from my old config, maybe there better solution nowadays
-					filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx', 'javascript', 'javascriptreact', 'javascript.jsx', 'vue', 'svelte', 'astro' },
-					cmd = { 'typescript-language-server', '--stdio' },
+					filetypes = {
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+						"vue",
+						"svelte",
+						"astro",
+					},
+					cmd = { "typescript-language-server", "--stdio" },
 				},
 
 				jsonls = {
@@ -103,6 +113,7 @@ return {
 					--    looks like something i would have added while i was floundering
 					init_options = { clangdFileStatus = true },
 					filetypes = { "c" },
+					cmd = { "clangd", "--offset-encoding=utf-16" },
 				},
 			}
 
@@ -118,8 +129,8 @@ return {
 			local mason = require("mason")
 			mason.setup({
 				ui = {
-					border = 'rounded'
-				}
+					border = "rounded",
+				},
 			})
 
 			local ensure_installed = {
