@@ -15,36 +15,36 @@ return {
 			-- end
 		end,
 		-- config = function()
-			-- require("gabre.picker")
-			-- if ColorMyPencils ~= nil then
-			-- 	ColorMyPencils()
-			-- end
+		-- require("gabre.picker")
+		-- if ColorMyPencils ~= nil then
+		-- 	ColorMyPencils()
+		-- end
 		-- end
 	},
-	"folke/tokyonight.nvim",
-	"ellisonleao/gruvbox.nvim",
-	"rktjmp/lush.nvim",
-	"tckmn/hotdog.vim",
-	"dundargoc/fakedonalds.nvim",
-	"craftzdog/solarized-osaka.nvim",
-	"eldritch-theme/eldritch.nvim",
-	"jesseleite/nvim-noirbuddy",
-	"vim-scripts/MountainDew.vim",
-	"miikanissi/modus-themes.nvim",
-	"rebelot/kanagawa.nvim",
-	"gremble0/yellowbeans.nvim",
-	"rockyzhang24/arctic.nvim",
-	"Shatur/neovim-ayu",
+	{ "folke/tokyonight.nvim", lazy = true },
+	{ "ellisonleao/gruvbox.nvim", lazy = true },
+	{ "rktjmp/lush.nvim", lazy = true },
+	{ "tckmn/hotdog.vim", lazy = true },
+	{ "dundargoc/fakedonalds.nvim", lazy = true },
+	{ "craftzdog/solarized-osaka.nvim", lazy = true },
+	{ "eldritch-theme/eldritch.nvim", lazy = true },
+	{ "jesseleite/nvim-noirbuddy", lazy = true },
+	{ "vim-scripts/MountainDew.vim", lazy = true },
+	{ "miikanissi/modus-themes.nvim", lazy = true },
+	{ "rebelot/kanagawa.nvim", lazy = true },
+	{ "gremble0/yellowbeans.nvim", lazy = true },
+	{ "rockyzhang24/arctic.nvim", lazy = true },
+	{ "Shatur/neovim-ayu", lazy = true },
 	-- "RRethy/base16-nvim",
-	"xero/miasma.nvim",
-	"cocopon/iceberg.vim",
-	"kepano/flexoki-neovim",
-	"ntk148v/komau.vim",
-	"uloco/bluloco.nvim",
-	"LuRsT/austere.vim",
-	"ricardoraposo/gruvbox-minor.nvim",
+	{ "xero/miasma.nvim", lazy = true },
+	{ "cocopon/iceberg.vim", lazy = true },
+	{ "kepano/flexoki-neovim", lazy = true },
+	{ "ntk148v/komau.vim", lazy = true },
+	{ "uloco/bluloco.nvim", lazy = true },
+	{ "LuRsT/austere.vim", lazy = true },
+	{ "ricardoraposo/gruvbox-minor.nvim", lazy = true },
 	"NTBBloodbath/sweetie.nvim",
-	{ 'hardhackerlabs/theme-vim', as = 'hardhacker' },
-	{ "rose-pine/neovim",         name = "rose-pine" },
-	{ "catppuccin/nvim",          name = "catppuccin" },
+	{ "hardhackerlabs/theme-vim", as = "hardhacker", lazy = true },
+	{ "rose-pine/neovim", name = "rose-pine", lazy = true },
+	{ "catppuccin/nvim", name = "catppuccin", lazy = true },
 }
