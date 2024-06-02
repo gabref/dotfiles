@@ -1,6 +1,7 @@
 -- makes color codes colorful #5f8e8e
 return {
 	"norcalli/nvim-colorizer.lua",
+	event = "VeryLazy",
 	config = function()
 		local c = require("colorizer")
 

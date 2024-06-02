@@ -1,16 +1,16 @@
 return {
 	{
 		"windwp/nvim-ts-autotag",
-		config = function ()
+		config = function()
 			require("nvim-ts-autotag").setup({})
-		end
+		end,
 	},
 	{
 		"windwp/nvim-autopairs",
-		config = function ()
+		config = function()
 			require("nvim-autopairs").setup({
-				disable_filetype = { 'TelescopePromp', 'vim' }
+				disable_filetype = { "TelescopePromp", "vim" },
 			})
-		end
+		end,
 	},
 }

@@ -1,6 +1,7 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
+		event = "VeryLazy",
 		config = function()
 			local status, gitsigns = pcall(require, 'gitsigns')
 			if (not status) then return end
@@ -22,6 +23,7 @@ return {
 	},
 	{
 		"tpope/vim-fugitive",
+		event = "VeryLazy",
 		config = function()
 			vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
 		end

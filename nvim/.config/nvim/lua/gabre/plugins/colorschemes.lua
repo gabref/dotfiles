@@ -6,12 +6,20 @@ return {
 		"Mofiqul/dracula.nvim",
 		lazy = false,
 		priority = 1000,
-		config = function()
+		init = function()
+			vim.cmd.colorscheme("dracula")
 			require("gabre.picker")
+			-- if ColorMyPencils ~= nil then
+			-- 	print("ColorMyPencils")
+			-- 	ColorMyPencils()
+			-- end
+		end,
+		-- config = function()
+			-- require("gabre.picker")
 			-- if ColorMyPencils ~= nil then
 			-- 	ColorMyPencils()
 			-- end
-		end
+		-- end
 	},
 	"folke/tokyonight.nvim",
 	"ellisonleao/gruvbox.nvim",
