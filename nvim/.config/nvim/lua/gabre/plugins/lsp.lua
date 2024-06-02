@@ -143,6 +143,15 @@ return {
 			vim.list_extend(ensure_installed, servers_to_install)
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+			-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+			local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+			--- @diagnostic disable-next-line: duplicate-set-field
+			function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+				opts = opts or {}
+				opts.border = opts.border or "rounded"
+				return orig_util_open_floating_preview(contents, syntax, opts, ...)
+			end
+
 			for name, config in pairs(servers) do
 				if config == true then
 					config = {}
@@ -209,6 +218,20 @@ return {
 			vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
 			vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
 			vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+
+			vim.diagnostic.config({
+				virtual_text = {
+					prefix = "",
+					spacing = 0,
+					source = false,
+				},
+				float = {
+					source = true,
+				},
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+			})
 		end,
 	},
 }
