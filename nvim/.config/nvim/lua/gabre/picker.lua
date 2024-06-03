@@ -84,12 +84,16 @@ function Prev_color(prompt_bufnr)
 end
 
 function MyColorPicker()
+	for _, color in ipairs(Options.colorshemes) do
+		vim.cmd("Lazy load " .. color.name)
+	end
 	local colors_table = ColorsSort(vim.fn.getcompletion("", "color"))
 
 	local opts = {
 		prompt_title = "Urmom Themes",
 		finder = finders.new_table(colors_table),
 		sorter = sorters.get_generic_fuzzy_sorter({}),
+		selection_strategy = "follow",
 
 		attach_mappings = function(_, map)
 			map("i", "<cr>", Enter)
@@ -103,11 +107,11 @@ function MyColorPicker()
 	}
 
 
-	local dropdown = themes.get_dropdown()
-	-- local ivy = themes.get_ivy()
-	-- local cursor = themes.get_cursor()
+	local theme = themes.get_dropdown()
+	-- local theme = themes.get_ivy()
+	-- local theme = themes.get_cursor()
 
-	local telescope_picker = pickers.new(dropdown, opts)
+	local telescope_picker = pickers.new(theme, opts)
 
 
 	telescope_picker:find()
