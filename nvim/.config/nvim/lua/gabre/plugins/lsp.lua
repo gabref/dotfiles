@@ -8,14 +8,14 @@ return {
 			"onsails/lspkind.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			{ "j-hui/fidget.nvim", opts = {} },
-
-			-- Autoformatting
-			"stevearc/conform.nvim",
-
 			-- Schema information
 			"b0o/SchemaStore.nvim",
 		},
-		config = function()
+		event = { "BufRead", "BufNewFile" },
+		opts = {
+			diagnostics = require("gabre.core.diagnostics"),
+		},
+		config = function(_, opts)
 			local neodev = require("neodev")
 			neodev.setup({
 				-- library = {
@@ -50,7 +50,6 @@ return {
 				},
 				lua_ls = true,
 				rust_analyzer = true,
-				svelte = true,
 				templ = true,
 				cssls = true,
 				tailwindcss = true,
@@ -78,6 +77,32 @@ return {
 							validate = { enable = true },
 						},
 					},
+				},
+
+				pyright = {
+					filetypes = { "python" },
+					root_dir = lspconfig.util.root_pattern(
+						"*.py",
+						"__init__.py",
+						".git",
+						"ruff.toml",
+						"pyproject.toml"
+					),
+					settings = {
+						pylsp = {
+							plugins = {
+								autopep8 = { enabled = false },
+								flake8 = { enabled = false },
+								yapf = { enabled = false },
+								mccabe = { enabled = false },
+								pycodestyle = { enabled = false },
+								pyflakes = { enabled = false },
+								pylint = { enabled = false },
+							},
+						},
+					},
+					cmd = { "pylsp" },
+					single_file_support = true,
 				},
 
 				yamlls = {
@@ -112,8 +137,53 @@ return {
 					-- TODO: Could include cmd, but not sure those were all relevant flags.
 					--    looks like something i would have added while i was floundering
 					init_options = { clangdFileStatus = true },
-					filetypes = { "c" },
 					cmd = { "clangd", "--offset-encoding=utf-16" },
+					filetypes = { "c", "h", "cpp", "chh", "objc", "objcpp", "cuda", "proto" },
+					root_dir = lspconfig.util.root_pattern(
+						".clangd",
+						".clang-tidy",
+						".clang-format",
+						"compile_commands.json",
+						"compile_flags.txt",
+						"configure.ac",
+						".git"
+					),
+					single_file_support = true,
+				},
+
+				docker_compose_language_service = {
+					filetypes = { "yaml.docker-compose" },
+					root_dir = lspconfig.util.root_pattern(
+						"docker-compose.yaml",
+						"docker-compose.yml",
+						"compose.yaml",
+						"compose.yml",
+						".git"
+					),
+					cmd = { "docker-compose-langserver", "--stdio" },
+					single_file_support = true,
+				},
+
+				biome = {
+					filetypes = {
+						"javascript",
+						"json",
+						"jsonc",
+						"typescript",
+						"typescript.tsx",
+						"astro",
+						"svelte",
+						"vue",
+					},
+					root_dir = lspconfig.util.root_pattern(".git", "package.json", "biome.json", "biome.jsonc"),
+					cmd = { "biome", "lsp-proxy" },
+					single_file_support = false,
+				},
+
+				svelte = {
+					filetypes = { "svelte", "css", "html", "javascript", "typescript" },
+					root_dir = lspconfig.util.root_pattern("biome.json", "biome.jsonc", "svelte.config.js", ".git"),
+					single_file_support = true,
 				},
 			}
 
@@ -133,24 +203,32 @@ return {
 				},
 			})
 
+			-- mason
 			local ensure_installed = {
 				"stylua",
+				"pyright",
 				"lua_ls",
 				"delve",
-				-- "tailwind-language-server",
+				"bash-language-server",
+				"clangd",
+				"css-lsp",
+				"delve",
+				"gopls",
+				"json-lsp",
+				"lua-language-server",
+				"rust-analyzer",
+				"stylua",
+				"svelte-language-server",
+				"biome",
+				"tailwindcss-language-server",
+				"templ",
+				"typescript-language-server",
+				"docker-compose-language-service",
+				"yaml-language-server",
 			}
 
 			vim.list_extend(ensure_installed, servers_to_install)
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
-			-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
-			local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-			--- @diagnostic disable-next-line: duplicate-set-field
-			function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-				opts = opts or {}
-				opts.border = opts.border or "rounded"
-				return orig_util_open_floating_preview(contents, syntax, opts, ...)
-			end
 
 			for name, config in pairs(servers) do
 				if config == true then
@@ -168,8 +246,6 @@ return {
 				lua = true,
 			}
 
-			local conform = require("conform")
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local bufnr = args.buf
@@ -185,8 +261,6 @@ return {
 					vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
 					vim.keymap.set("i", "<c-h>", vim.lsp.buf.signature_help, opts)
 					vim.keymap.set({ "n", "x" }, "<leader>f", vim.lsp.buf.format, opts)
-					vim.keymap.set({ "n", "x" }, "<leader>cf", conform.format, opts)
-
 					vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, opts)
 					vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
 
@@ -197,41 +271,7 @@ return {
 				end,
 			})
 
-			conform.setup({
-				formatters_by_ft = {
-					lua = { "stylua" },
-				},
-			})
-
-			-- autoformat
-			-- vim.api.nvim_create_autocmd("BufWritePre", {
-			-- 	callback = function(args)
-			-- 		require("conform").format({
-			-- 			bufnr = args.buf,
-			-- 			lsp_fallback = true,
-			-- 			quiet = true,
-			-- 		})
-			-- 	end,
-			-- })
-
-			vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
-			vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
-			vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
-			vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
-
-			vim.diagnostic.config({
-				virtual_text = {
-					prefix = "",
-					spacing = 0,
-					source = false,
-				},
-				float = {
-					source = true,
-				},
-				signs = true,
-				underline = true,
-				update_in_insert = false,
-			})
+			vim.diagnostic.config(vim.deepcopy(opts.diagnostic))
 		end,
 	},
 }
