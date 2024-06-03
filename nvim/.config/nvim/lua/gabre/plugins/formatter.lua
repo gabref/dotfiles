@@ -33,7 +33,7 @@ return {
 			javascript = { "biome" },
 			typescript = { "biome" },
 		},
-		format_on_save = { timeout_ms = 500, lsp_fallback = true },
+		-- format_on_save = { timeout_ms = 500, lsp_fallback = true },
 		formatters = {
 			beautysh = { prepend_args = { "-i", "2" } },
 			shfmt = { prepend_args = { "--simplify", "--indent", "2", "--binary-next-line", "--case-indent" } },
