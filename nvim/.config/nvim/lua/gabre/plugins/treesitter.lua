@@ -55,9 +55,6 @@ return {
 					end,
 					additional_vim_regex_highlighting = false,
 				},
-				autotag = {
-					enable = true,
-				},
 			}
 		end,
 		config = function(_, opts)
