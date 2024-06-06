@@ -164,6 +164,10 @@ return {
 					single_file_support = true,
 				},
 
+				taplo = {
+					filetypes = { "toml" },
+				},
+
 				biome = {
 					filetypes = {
 						"javascript",
@@ -220,6 +224,7 @@ return {
 				"stylua",
 				"svelte-language-server",
 				"biome",
+				"taplo",
 				"tailwindcss-language-server",
 				"templ",
 				"typescript-language-server",
