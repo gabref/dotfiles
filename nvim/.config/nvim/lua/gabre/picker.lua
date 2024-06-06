@@ -133,11 +133,20 @@ function ColorsSort(colors_table)
 		"default", "quiet", "habamax",
 		-- white colorschemes
 		"catppuccin-latte", "kanagawa-lotus", "rose-pine",
-		"rose-pine-dawn", "solarized-osaka-day", "tokyonight-day"
+		"rose-pine-dawn", "solarized-osaka-day", "tokyonight-day",
+		"modus_operandi",
+		-- problematic themes
+		"noirbuddy"
 	}
 
-	-- Create a table to store the reordered colorschemes
+	-- add to move_to_end the colorschemes that have 'light' in their name
+	for _, color in ipairs(colors_table) do
+		if string.find(color, 'light') then
+			table.insert(move_to_end, color)
+		end
+	end
 
+	-- Create a table to store the reordered colorschemes
 	local reordered_table = {}
 
 	-- Add colorschemes not in move_to_end to the reordered_table
