@@ -73,14 +73,14 @@ function Next_color(prompt_bufnr)
 	actions.move_selection_next(prompt_bufnr)
 	local selected = actions_state.get_selected_entry()
 
-	ColorMyPencils(selected[1])
+	ColorMyPencils(selected[1], false)
 end
 
 function Prev_color(prompt_bufnr)
 	actions.move_selection_previous(prompt_bufnr)
 	local selected = actions_state.get_selected_entry()
 
-	ColorMyPencils(selected[1])
+	ColorMyPencils(selected[1], false)
 end
 
 function MyColorPicker()
