@@ -48,11 +48,13 @@ return {
 						},
 					},
 				},
+				prismals = true,
 				lua_ls = true,
 				rust_analyzer = true,
 				templ = true,
 				cssls = true,
 				tailwindcss = true,
+				marksman = true,
 
 				tsserver = {
 					-- from my old config, maybe there better solution nowadays
@@ -219,6 +221,7 @@ return {
 				"delve",
 				"gopls",
 				"json-lsp",
+				"marksman",
 				"lua-language-server",
 				"rust-analyzer",
 				"stylua",

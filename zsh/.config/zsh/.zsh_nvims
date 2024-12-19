@@ -3,6 +3,7 @@ alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 alias nvim-macro="NVIM_APPNAME=nvim-macro nvim"
+alias nvim-starter="NVIM_APPNAME=nvim-starter nvim"
 alias nv="NVIM_APPNAME=newconfig nvim"
 
 function nvims() {

@@ -24,6 +24,7 @@ alias open='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
 eval `keychain --quiet --agents ssh --eval \
 	/home/gabre/.ssh/id_github_ed25519 \
 	/home/gabre/.ssh/id_embed_ed25519 \
+	/home/gabre/.ssh/id_gitlab_ed25519 \
 	`
 # clear
 # if [ ! -f ~/.run_once ]; then

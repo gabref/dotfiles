@@ -1,3 +1,6 @@
+# Instpirations
+# https://gist.github.com/philcryer/e949be81f94c2598fce01c9a2d687247
+
 sudo apt update -y && upgrade -y
 
 # git
