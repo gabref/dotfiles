@@ -11,11 +11,11 @@ return {
 		event = { 'VeryLazy' },
 		lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
 		cmd = { 'TSUpdateSync', 'TSUpdate', 'TSInstall' },
-		keys = {
-			{ '<C-Space>', desc = 'Increment Selection' },
-			{ 'v', desc = 'Increment Selection', mode = 'x' },
-			{ 'V', desc = 'Decrement Selection', mode = 'x' },
-		},
+		-- keys = {
+		-- 	{ '<C-Space>', desc = 'Increment Selection' },
+		-- 	{ 'v', desc = 'Increment Selection', mode = 'x' },
+		-- 	{ 'V', desc = 'Decrement Selection', mode = 'x' },
+		-- },
 		dependencies = {
 			-- modern matchit and matchparen
 			{
@@ -52,15 +52,15 @@ return {
 				include_match_words = true,
 			},
 
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = '<C-Space>',
-					node_incremental = 'v',
-					scope_incremental = false,
-					node_decremental = 'V',
-				},
-			},
+			-- incremental_selection = {
+			-- 	enable = true,
+			-- 	keymaps = {
+			-- 		init_selection = '<C-Space>',
+			-- 		node_incremental = 'v',
+			-- 		scope_incremental = false,
+			-- 		node_decremental = 'V',
+			-- 	},
+			-- },
 
 			-- See: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 			textobjects = {

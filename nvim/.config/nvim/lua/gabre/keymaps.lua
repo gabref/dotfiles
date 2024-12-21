@@ -73,8 +73,8 @@ keymap("n", "<leader>xl", "<cmd>.lua<CR>", opts)
 keymap("n", "<leader>xf", "<cmd>source %<CR>", opts)
 
 -- comment
-keymap("n", "<leader>c", "gcc", opts)
-keymap("x", "<leader>c", "gc", opts)
-keymap('n', 'gco', 'o<Esc>Vcx<Esc><cmd>normal gcc<CR>fxa<BS>', { noremap = true, silent = true, desc = 'Add Comment Below' })
-keymap('n', 'gcO', 'O<Esc>Vcx<Esc><cmd>normal gcc<CR>fxa<BS>', { noremap = true, silent = true, desc = 'Add Comment Above' })
+-- keymap("n", "<leader>c", "gcc", opts)
+-- keymap("x", "<leader>c", "gc", opts)
+-- keymap('n', 'gco', 'o<Esc>Vcx<Esc><cmd>normal gcc<CR>fxa<BS>', { noremap = true, silent = true, desc = 'Add Comment Below' })
+-- keymap('n', 'gcO', 'O<Esc>Vcx<Esc><cmd>normal gcc<CR>fxa<BS>', { noremap = true, silent = true, desc = 'Add Comment Above' })
 
