@@ -58,6 +58,7 @@ vim.api.nvim_create_autocmd('FileType', {
 		'blame',
 		'checkhealth',
 		'dbout',
+		'floggraph',
 		'fugitive',
 		'fugitiveblame',
 		'gitsigns-blame',
@@ -168,17 +169,17 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPre' }, {
 	end,
 })
 
--- specific colorscheme for filetype
--- https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/init.lua
-vim.api.nvim_create_autocmd('BufEnter', {
-	group = augroup('theme'),
-	callback = function()
-		if vim.bo.filetype == 'zig' then
-			vim.cmd.colorscheme('koehler')
-			-- vim.cmd.colorscheme('tokyonight-night')
-		else
-			vim.cmd.colorscheme('default')
-			-- vim.cmd.colorscheme('rose-pine-moon')
-		end
-	end,
-})
+-- -- specific colorscheme for filetype
+-- -- https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/init.lua
+-- vim.api.nvim_create_autocmd('BufEnter', {
+-- 	group = augroup('theme'),
+-- 	callback = function()
+-- 		if vim.bo.filetype == 'zig' then
+-- 			-- vim.cmd.colorscheme('koehler')
+-- 		else
+-- 			vim.cmd.colorscheme('tokyonight-night')
+-- 			vim.cmd.colorscheme('default')
+-- 			-- vim.cmd.colorscheme('rose-pine-moon')
+-- 		end
+-- 	end,
+-- })

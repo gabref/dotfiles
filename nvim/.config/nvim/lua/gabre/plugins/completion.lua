@@ -16,14 +16,19 @@ return {
 		-- see the "default configuration" section below for full documentation on how to define
 		-- your own keymap.
 		keymap = { preset = 'default' },
-
+		enabled = function()
+			return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
+				and vim.bo.buftype ~= "prompt"
+				and vim.b.completion ~= false
+		end,
 		completion = {
 			menu = {
+				border = 'none',
 				draw = {
 					gap = 2,
 					columns = {
-						{ "label",     "label_description", gap = 1 },
-						{ "kind_icon", "kind", gap = 2},
+						{ "label",      "label_description", gap = 1 },
+						{ "kind_icon",  "kind",              gap = 2 },
 						{ "source_name" },
 					},
 				}
@@ -51,7 +56,7 @@ return {
 		sources = {
 			default = { 'lsp', 'path', 'snippets', 'buffer' },
 			-- optionally disable cmdline completions
-			-- cmdline = {},
+			cmdline = {},
 		},
 
 		-- experimental signature help support

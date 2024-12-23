@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.5",
+	tag = "0.1.8",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-file-browser.nvim" },
@@ -24,8 +24,8 @@ return {
 			extensions = {
 				file_browser = {
 					theme = "ivy", -- dropdown
-					-- disables netrw and use tleescope-file-browser in its place
-					hijack_netrw = true,
+					-- disables netrw and use telescope-file-browser in its place
+					-- hijack_netrw = true,
 					hidden = { file_browser = true, folder_browser = true },
 					initial_mode = "normal",
 					mappings = {

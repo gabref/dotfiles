@@ -26,13 +26,12 @@ local colorschemes = {
 		{ "hardhackerlabs/theme-vim",         lazy = true, name = "hardhacker",     as = "hardhacker" },
 	}
 
-local all_colors = {
+All_colorschemes = {
 	{
 		"xiyaowong/nvim-transparent",
 	},
 	{
 		"Mofiqul/dracula.nvim",
-
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 			"nvim-lua/plenary.nvim",
@@ -42,14 +41,14 @@ local all_colors = {
 		init = function()
 			vim.cmd.colorscheme("dracula")
 		end,
-		-- config = function()
-		-- 	require("gabre.picker")
-		-- end,
+		config = function()
+			require("gabre.picker")
+		end,
 	},
 }
 
 for _, colors in ipairs(colorschemes) do
-	table.insert(all_colors, colors)
+	table.insert(All_colorschemes, colors)
 end
 
-return all_colors
+return All_colorschemes
