@@ -26,39 +26,39 @@ return {
 	{ 'MunifTanjim/nui.nvim', lazy = false },
 
 	-- Notify (use folke/noice when cmdline can be used normally separate from messages)
-	-- TODO: something is not working
-	-- keys = {
-	-- 	{
-	-- 		'<leader>nth',
-	-- 		function()
-	-- 			require('telescope').extensions.notify.notify()
-	-- 		end,
-	-- 		mode = 'n'
-	-- 	},
-	-- 	{
-	-- 		'<leader>nh',
-	-- 		function()
-	-- 			require("notify").history()
-	-- 		end,
-	-- 		mode = 'n'
-	-- 	}
-	-- },
 
-	-- {
-	-- 	"rcarriga/nvim-notify",
-	-- 	lazy = false,
-	-- 	opts = {
-	-- 		-- Animation style
-	-- 		stages = "fade_in_slide_out",
-	-- 		-- Default timeout for notifications
-	-- 		timeout = 1500,
-	-- 		background_colour = "#2E3440",
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		local notify = require("notify")
-	-- 		notify.setup(opts)
-	-- 		vim.notify = notify
-	-- 	end,
-	-- }
+	{
+		"rcarriga/nvim-notify",
+		lazy = false,
+		event = "VimEnter",
+		keys = {
+			{
+				'<leader>nth',
+				function()
+					require('telescope').extensions.notify.notify()
+				end,
+				mode = 'n'
+			},
+			{
+				'<leader>nh',
+				function()
+					require("notify").history()
+				end,
+				mode = 'n'
+			}
+		},
+		opts = {
+			-- Animation style
+			stages = "fade_in_slide_out",
+			-- Default timeout for notifications
+			timeout = 1500,
+			background_colour = "#2E3440",
+		},
+		config = function(_, opts)
+			local notify = require("notify")
+			notify.setup(opts)
+			vim.notify = notify
+		end,
+	}
 
 }

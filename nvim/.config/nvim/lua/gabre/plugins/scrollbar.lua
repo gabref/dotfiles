@@ -7,13 +7,16 @@ return {
 	config = function()
 		local scrollbar = require("scrollbar")
 		-- TODO: get bg color from current colorscheme
-		local tokyo = require('tokyonight')
+		local colorscheme = require('tokyonight')
+		if vim.g.colorscheme_name ~= nil then
+			colorscheme = require(vim.g.colorscheme_name)
+		end
 		scrollbar.setup({
 			show_in_active_only = true,
 			handle = {
 				blend = 0,
 				text = " ",
-				color = tokyo.bg_highlight,
+				color = colorscheme.bg_highlight,
 				color_nr = 234,
 			},
 			marks = {

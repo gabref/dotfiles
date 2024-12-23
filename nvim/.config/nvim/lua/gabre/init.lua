@@ -20,6 +20,7 @@ function M.setup()
 				M.load('autocmds')
 			end
 			M.load('keymaps')
+			M.load('terminal')
 			if lazy_clipboard ~= nil then
 				vim.opt.clipboard = lazy_clipboard
 			end
@@ -28,7 +29,7 @@ function M.setup()
 end
 
 -- load lua/gabre/* files
----@param name 'autocmds' | 'set' | 'keymaps'
+---@param name 'autocmds' | 'set' | 'keymaps' | 'terminal'
 function M.load(name)
 	require('gabre.' .. name)
 	if vim.bo.filetype == 'lazy' then
