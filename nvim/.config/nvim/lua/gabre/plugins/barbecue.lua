@@ -1,5 +1,6 @@
 return {
 	"utilyre/barbecue.nvim",
+	even = "VeryLazy",
 	name = "barbecue",
 	version = "*",
 	dependencies = {
@@ -12,7 +13,6 @@ return {
 
 		-- triggers CursorHold event faster
 		vim.opt.updatetime = 200
-
 		barbecue.setup({
 			create_autocmd = false -- prevent barbecue from updating itself automatically
 		})

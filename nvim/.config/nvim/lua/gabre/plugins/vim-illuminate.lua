@@ -1,6 +1,7 @@
 -- highlights currencies of the work under the cursor
 return {
 	"RRethy/vim-illuminate",
+	event = "VeryLazy",
 	config = function()
 		-- default configuration
 		require('illuminate').configure({
@@ -9,6 +10,7 @@ return {
 				'lsp',
 				'treesitter',
 				'regex',
+
 			},
 			-- delay: delay in milliseconds
 			delay = 100,
@@ -52,7 +54,6 @@ return {
 			large_file_overrides = nil,
 
 			-- min_count_to_highlight: minimum number of matches required to perform highlighting
-
 			min_count_to_highlight = 1,
 			-- should_enable: a callback that overrides all other settings to
 			-- enable/disable illumination. This will be called a lot so don't do
@@ -60,6 +61,8 @@ return {
 			should_enable = function(bufnr) return true end,
 			-- case_insensitive_regex: sets regex case sensitivity
 			case_insensitive_regex = false,
+
 		})
 	end
+
 }

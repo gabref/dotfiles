@@ -1,8 +1,8 @@
 return {
 	"Diogo-ss/42-header.nvim",
+	event = "VeryLazy",
 	config = function()
 		local header42 = require("42header")
-
 		header42.setup({
 			length = 80,            -- headers of different sizes are incompatible with each other
 			margin = 5,
