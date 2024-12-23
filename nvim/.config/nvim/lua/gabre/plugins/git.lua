@@ -94,7 +94,7 @@ return {
 				end, { desc = 'Send to location list' })
 
 				-- Toggles
-				map('n', '<leader>htb', gs.toggle_current_line_blame, { desc = 'Toggle Git line blame' })
+				map('n', '<leader>gb', gs.toggle_current_line_blame, { desc = 'Toggle Git line blame' })
 				map('n', '<leader>htB', function() gs.blame() end, { desc = 'Blame Buffer' })
 				map('n', '<leader>htd', gs.toggle_deleted, { desc = 'Toggle Git deleted' })
 				map('n', '<leader>htw', gs.toggle_word_diff, { desc = 'Toggle Git word diff' })
@@ -113,8 +113,8 @@ return {
 		'sindrets/diffview.nvim',
 		cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
 		keys = {
-			{ '<Leader>gd', '<cmd>DiffviewFileHistory %<CR>', desc = 'Diff File' },
-			{ '<Leader>gv', '<cmd>DiffviewOpen<CR>',          desc = 'Diff View' },
+			-- { '<Leader>gd', '<cmd>DiffviewFileHistory %<CR>', desc = 'Diff File' },
+			{ '<Leader>gv', '<cmd>DiffviewOpen<CR>', desc = 'Diff View' },
 		},
 		opts = function()
 			local actions = require('diffview.actions')
@@ -155,6 +155,14 @@ return {
 					},
 				},
 			}
+		end,
+	},
+
+	{
+		"tpope/vim-fugitive",
+		event = "VeryLazy",
+		config = function()
+			vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 		end,
 	},
 
