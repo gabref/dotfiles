@@ -48,8 +48,8 @@ return {
 				"cssls",
 				"css-lsp",
 				"json-lsp",
-				"tailwindcss",
-				-- "tailwind-language-server",
+				"tailwindcss-language-server",
+				"typescript-language-server",
 				"marksman",
 				"yaml-language-server",
 			},
@@ -59,6 +59,8 @@ return {
 
 			local servers = {
 				lua_ls = {},
+				cssls = {},
+				tailwindcss = {},
 
 				gopls = {
 					settings = {
@@ -90,7 +92,32 @@ return {
 						"astro",
 					},
 					cmd = { "typescript-language-server", "--stdio" },
+					settings = {
+						typescript = {
+							inlayHints = {
+								includeInlayParameterNameHints = "literal",
+								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = false,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+						javascript = {
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = true,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+					},
 				},
+
 
 				jsonls = {
 					settings = {
