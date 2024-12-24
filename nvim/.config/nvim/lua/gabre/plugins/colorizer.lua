@@ -1,16 +1,16 @@
 -- makes color codes colorful #5f8e8e
 return {
-	"norcalli/nvim-colorizer.lua",
-	event = "VeryLazy",
+	"catgoose/nvim-colorizer.lua",
+	event = "BufReadPre",
 	config = function()
-		local c = require("colorizer")
-
 		vim.opt.termguicolors = true
-
-		c.setup({
-			'*',
-			html = {
-				mode = 'foreground',
+		require('colorizer').setup({
+			filetypes = {
+				"*",
+				html = { mode = "foreground" },
+			},
+			user_default_options = {
+				tailwind = true,
 			}
 		})
 	end
