@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Check if a file argument is provided
+if [ -z "$1" ]; then
+    echo "Usage: mpd <filename>.md"
+    exit 1
+fi
+
+# Get the filename without extension
+filename="${1%.md}"
+
+# Run the Pandoc command
+pandoc "$1" --template "$1" | pandoc --pdf-engine=xelatex -o "$filename.pdf"
+
+# Check if the PDF was created successfully
+if [ $? -eq 0 ]; then
+    echo "PDF successfully created: $filename.pdf"
+else
+    echo "Error generating PDF."
+fi
