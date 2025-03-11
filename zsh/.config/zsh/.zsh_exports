@@ -23,6 +23,10 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 export PATH=/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:$PATH
 # export PATH=/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:$PATH
 # export PATH=/usr/games:/usr/local/games:$PATH
