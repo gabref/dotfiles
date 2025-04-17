@@ -39,6 +39,7 @@ return {
 		opts = {
 			diagnostics = require('gabre.diagnostics'),
 			ensure_installed = {
+				"astro",
 				"lua_ls",
 				"bash-language-server",
 				"templ",
@@ -61,6 +62,13 @@ return {
 				lua_ls = {},
 				cssls = {},
 				tailwindcss = {},
+				rust_analyzer = {},
+
+				astro = {
+					filetypes = { "astro" },
+					cmd = { "astro-ls", "--stdio" },
+					init_options = { typescript = {} },
+				},
 
 				gopls = {
 					settings = {
@@ -89,7 +97,7 @@ return {
 						"javascript.jsx",
 						"vue",
 						"svelte",
-						"astro",
+						-- "astro",
 					},
 					cmd = { "typescript-language-server", "--stdio" },
 					settings = {

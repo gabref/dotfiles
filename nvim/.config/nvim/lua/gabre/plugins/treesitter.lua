@@ -107,6 +107,7 @@ return {
 
 			-- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
 			ensure_installed = {
+				'astro',
 				'bash',
 				'c',
 				'comment',
