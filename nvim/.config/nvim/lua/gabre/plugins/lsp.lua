@@ -61,6 +61,7 @@ return {
 			local servers = {
 				lua_ls = {},
 				cssls = {},
+				html = {},
 				tailwindcss = {},
 				rust_analyzer = {},
 
