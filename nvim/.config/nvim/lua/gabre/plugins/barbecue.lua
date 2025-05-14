@@ -1,5 +1,5 @@
 return {
-	"utilyre/barbecue.nvim",
+	--[[ "utilyre/barbecue.nvim",
 	event = "VeryLazy",
 	name = "barbecue",
 	version = "*",
@@ -30,5 +30,5 @@ return {
 		})
 
 		vim.keymap.set('n', '<leader>b', function() require('barbecue.ui').toggle() end)
-	end
+	end ]]
 }
