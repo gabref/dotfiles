@@ -48,3 +48,8 @@ go install github.com/arl/gitmux@latest
 
 ## Nice links
 * (Alacritty config)[https://github.com/mauromotion/dotfiles/blob/main/alacritty/alacritty.toml]
+
+nice stuff
+```bash
+:h find-manpage
+```
