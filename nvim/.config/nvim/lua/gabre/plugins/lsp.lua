@@ -173,6 +173,12 @@ return {
 					filetype = { "toml" },
 				},
 
+				marksman = {
+					setup = {
+						on_attach = LspOnAttach,
+					}
+				},
+
 				pyright = {
 					filetypes = { "python" },
 					root_dir = lspconfig.util.root_pattern(
