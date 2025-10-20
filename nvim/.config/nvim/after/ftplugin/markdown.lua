@@ -51,3 +51,5 @@ vim.keymap.set('x', '<C-Return>', link_surround, opts)
 vim.b.undo_ftplugin = (vim.b.undo_ftplugin or '') .. '\n '
 	.. 'sil! nunmap <buffer> <C-Return>'
 	.. ' | sil! xunmap <buffer> <C-Return>'
+
+vim.opt.conceallevel = 2
