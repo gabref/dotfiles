@@ -101,6 +101,11 @@ return {
 						-- "astro",
 					},
 					cmd = { "typescript-language-server", "--stdio" },
+					init_options = {
+						name = "@vue/typescript-plugin",
+						location = "/home/gabre/n/lib/node_modules/@vue/language-server",
+						languages = { "vue" },
+					},
 					settings = {
 						typescript = {
 							inlayHints = {

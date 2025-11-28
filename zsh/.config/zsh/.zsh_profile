@@ -25,6 +25,7 @@ eval `keychain --quiet --agents ssh --eval \
 	/home/gabre/.ssh/id_github_ed25519 \
 	/home/gabre/.ssh/id_embed_ed25519 \
 	/home/gabre/.ssh/id_gitlab_ed25519 \
+	/home/gabre/.ssh/bethel_key \
 	`
 # clear
 # if [ ! -f ~/.run_once ]; then

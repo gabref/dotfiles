@@ -1,5 +1,8 @@
 # exports
 
+export SPFX_SERVE_TENANT_DOMAIN=jwsite.sharepoint.com
+export PYTHON=/bin/python3
+
 # XDG Paths
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
